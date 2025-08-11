@@ -1,0 +1,36 @@
+<div class="hero">
+  <h1>Welcome to Portfolio Builder</h1>
+  <p>Create beautiful portfolio sites with drag-and-drop simplicity</p>
+  
+  <% unless logged_in? %>
+    <div class="hero-actions">
+      <%= link_to "Get Started", signup_path, class: "btn btn-primary" %>
+      <%= link_to "Login", login_path, class: "btn btn-secondary" %>
+    </div>
+  <% else %>
+    <div class="hero-actions">
+      <%= link_to "My Projects", projects_path, class: "btn btn-primary" %>
+      <%= link_to "Create New Project", new_project_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="features">
+  <h2>Features</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Drag & Drop</h3>
+      <p>Easily arrange your portfolio components with intuitive drag and drop</p>
+    </div>
+    
+    <div class="feature">
+      <h3>Custom Projects</h3>
+      <p>Showcase your work with beautiful project displays</p>
+    </div>
+    
+    <div class="feature">
+      <h3>Responsive Design</h3>
+      <p>Your portfolio looks great on all devices</p>
+    </div>
+  </div>
+</div>

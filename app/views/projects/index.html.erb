@@ -1,0 +1,30 @@
+<div class="projects-index">
+  <div class="header">
+    <h1>My Projects</h1>
+    <%= link_to "Create New Project", new_project_path, class: "btn btn-primary" %>
+  </div>
+
+  <% if @projects.any? %>
+    <div class="projects-grid">
+      <% @projects.each do |project| %>
+        <div class="project-card">
+          <h3><%= link_to project.title, project %></h3>
+          <p><%= truncate(project.description, length: 100) %></p>
+          <div class="project-actions">
+            <%= link_to "View", project, class: "btn btn-small" %>
+            <%= link_to "Edit", edit_project_path(project), class: "btn btn-small btn-secondary" %>
+            <%= link_to "Delete", project, method: :delete, 
+                        confirm: "Are you sure?", 
+                        class: "btn btn-small btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="empty-state">
+      <h2>No projects yet</h2>
+      <p>Create your first project to get started building your portfolio!</p>
+      <%= link_to "Create Your First Project", new_project_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
